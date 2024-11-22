@@ -1,0 +1,8 @@
+*.drawio.bkp
+
+.DS_Store
+
+.vscode/
+
+/.idea/
+
