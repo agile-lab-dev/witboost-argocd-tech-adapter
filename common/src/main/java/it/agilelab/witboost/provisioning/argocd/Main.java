@@ -1,0 +1,16 @@
+package it.agilelab.witboost.provisioning.argocd;
+
+import com.witboost.provisioning.JavaTechAdapterFramework;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+
+@SpringBootApplication(scanBasePackageClasses = {JavaTechAdapterFramework.class, Main.class})
+@ConfigurationPropertiesScan(basePackageClasses = {JavaTechAdapterFramework.class, Main.class})
+public class Main {
+
+    /** This is the main method which acts as the entry point inside the application. */
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
+}
