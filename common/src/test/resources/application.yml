@@ -11,5 +11,5 @@ springdoc:
 
 
 argocd:
-  token: ${ARGOCD_TOKEN}
-  basePath: {$ARGOCD_BASE_PATH}
+  token: fake-token
+  basePath: https://fake-url.com

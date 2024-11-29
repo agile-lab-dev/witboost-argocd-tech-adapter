@@ -25,8 +25,13 @@
                 <configuration>
                     <mainClass>it.agilelab.witboost.provisioning.argocd.Main</mainClass>
                     <layout>JAR</layout>
+                    <systemPropertyVariables>
+                        <javax.net.ssl.trustStore>${env.ARGOCD_TRUSTSTORE_PATH}</javax.net.ssl.trustStore>
+                        <javax.net.ssl.trustStorePassword>${env.ARGOCD_TRUSTSTORE_PASSWORD}</javax.net.ssl.trustStorePassword>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
@@ -53,6 +58,30 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.10.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/argocd-specification.json</inputSpec>
+                            <generatorName>java</generatorName>
+                            <output>${project.basedir}/target/generated/openapi</output>
+                            <library>resttemplate</library>
+                            <configOptions>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <sourceFolder>src/main/java</sourceFolder>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -75,9 +104,48 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/org.realityforge.javax.annotation/javax.annotation -->
+        <dependency>
+            <groupId>org.realityforge.javax.annotation</groupId>
+            <artifactId>javax.annotation</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/io.gsonfire/gson-fire -->
+        <dependency>
+            <groupId>io.gsonfire</groupId>
+            <artifactId>gson-fire</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.witboost.provisioning</groupId>
             <artifactId>java-tech-adapter-framework-core</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

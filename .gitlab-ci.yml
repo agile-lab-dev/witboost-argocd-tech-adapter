@@ -83,16 +83,15 @@ fail_on_detection:
         - '**/*.scala'
         - '**/*.sc'
 
-vulnerability_analysis:
-  stage: compile
-  when: manual
-  before_script:
-    - mvn --version
-  script:
-    - mvn -DskipTests=true package org.owasp:dependency-check-maven:check
-  artifacts:
-    paths:
-      - common/target/dependency-check-report.html
+#vulnerability_analysis:
+#  stage: compile
+#  before_script:
+#    - mvn --version
+#  script:
+#    - mvn -DskipTests=true package org.owasp:dependency-check-maven:check
+#  artifacts:
+#    paths:
+#      - common/target/dependency-check-report.html
 
 license_check:
   stage: compile
@@ -145,7 +144,6 @@ coverage-jdk17:
 
 package:
   stage: package
-  when: manual
   script:
     - mvn -DskipTests=true $MAVEN_CLI_OPTS package spring-boot:repackage
   artifacts:
@@ -154,13 +152,11 @@ package:
 
 publish:
   stage: publish
-  when: manual
   script:
     - mvn -DskipTests=true deploy -s ci_settings.xml
 
 docker_build:
   stage: publish
-  when: manual
   image: docker:23.0.0
   services:
     - docker:23.0.0-dind
@@ -171,14 +167,12 @@ docker_build:
 
 helm_package:
   stage: publish
-  when: manual
   extends: .witboost.helm.deploy
   needs:
     - docker_build
 
 container_scanning:
   stage: publish
-  when: manual
   variables:
     GIT_STRATEGY: fetch
     CS_DOCKERFILE_PATH: .
@@ -191,7 +185,6 @@ container_scanning:
 
 check_vulnerabilities_analysis:
   stage: publish
-  when: manual
   before_script:
     - apt update -y && apt -y install jq
   script:
