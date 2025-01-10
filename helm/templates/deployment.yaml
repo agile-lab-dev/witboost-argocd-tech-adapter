@@ -52,6 +52,36 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+            - name: ARGOCD_BASE_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: ARGOCD_BASE_PATH
+            - name: ARGOCD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: ARGOCD_TOKEN
+            - name: ARGOCD_TRUSTSTORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: ARGOCD_TRUSTSTORE_PASSWORD
+            - name: ARGOCD_TRUSTSTORE_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: ARGOCD_TRUSTSTORE_PATH
+            - name: GIT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: GIT_TOKEN
+            - name: GIT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-addons-secrets
+                  key: GIT_USERNAME
 
             - name: SPRING_CONFIG_LOCATION
               value: file:/opt/docker/etc/configs/application.yml

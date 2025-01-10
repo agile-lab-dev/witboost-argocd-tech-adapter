@@ -39,6 +39,8 @@
                     <excludes>
                         <exclude>it/agilelab/witboost/provisioning/argocd/openapi/**</exclude>
                         <exclude>it/agilelab/witboost/provisioning/argocd/Main.class</exclude>
+                        <exclude>org/openapitools/**</exclude>
+                        <exclude></exclude>
                     </excludes>
                 </configuration>
                 <executions>

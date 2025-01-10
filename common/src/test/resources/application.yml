@@ -13,3 +13,7 @@ springdoc:
 argocd:
   token: fake-token
   basePath: https://fake-url.com
+
+git:
+  username: user123
+  token: git-token

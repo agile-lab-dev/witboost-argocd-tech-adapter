@@ -12,6 +12,7 @@ This repository is part of our [Starter Kit](https://github.com/agile-lab-dev/wi
 
 - [Overview](#overview)
 - [Building](#building)
+- [Configuring](#configuring)
 - [Running](#running)
 - [OpenTelemetry Setup](docs/opentelemetry.md)
 - [Deploying](#deploying)
@@ -149,6 +150,17 @@ export PROVISIONER_VERSION=$(date +%Y%m%d-%H%M%S);
 **CI/CD:** the pipeline is based on GitLab CI as that's what we use internally. It's configured by the `.gitlab-ci.yaml` file in the root of the repository. You can use that as a starting point for your customizations.
 
 
+## Configuring
+
+Application configuration is handled using the features provided by Spring Boot. You can find the default settings in the [application.yml](common%2Fsrc%2Fmain%2Fresources%2Fapplication.yml). Customize it and use the `spring.config.location` system property or the other options provided by the framework according to your needs.
+
+### SSL/TLS Configuration
+Configure the Tech Adapter’s JVM to accept ArgoCD self-signed certificates. Please follow the detailed instructions in the [certificate-configuration.md](docs/certificate-configuration.md).
+
+### Environment variables
+
+The environment variables explained in [environment-variables.md](docs/environment-variables.md) are required to configure the Tech Adapter for ArgoCD.
+
 ## Running
 
 To run the server locally, use:
@@ -160,11 +172,6 @@ mvn -pl common spring-boot:run
 By default, the server binds to port `8888` on localhost. After it's up and running you can make provisioning requests to this address. You can access the running application [here](http://127.0.0.1:8888).
 
 SwaggerUI is configured and hosted on the path `/docs`. You can access it [here](http://127.0.0.1:8888/docs)
-
-
-## Configuring
-
-Application configuration is handled using the features provided by Spring Boot. You can find the default settings in the [application.yml](common%2Fsrc%2Fmain%2Fresources%2Fapplication.yml). Customize it and use the `spring.config.location` system property or the other options provided by the framework according to your needs.
 
 
 ## Deploying

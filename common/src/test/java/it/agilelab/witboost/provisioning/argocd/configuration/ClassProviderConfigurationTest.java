@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.witboost.provisioning.framework.service.ComponentClassProvider;
 import com.witboost.provisioning.framework.service.SpecificClassProvider;
-import com.witboost.provisioning.model.Specific;
 import com.witboost.provisioning.model.Workload;
+import it.agilelab.witboost.provisioning.argocd.model.application.ArgoCDApplicationSpecific;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,10 +37,10 @@ class ClassProviderConfigurationTest {
         // Verify that the `specificClassProvider` bean is correctly created
         assertNotNull(specificClassProvider, "SpecificClassProvider should not be null");
 
-        // Check that the default specific class is set to Specific.class
+        // Check that the default specific class is set to ArgoCDApplicationSpecific.class
         assertEquals(
-                Some(Specific.class),
+                Some(ArgoCDApplicationSpecific.class),
                 specificClassProvider.get("any"),
-                "The default specific class for SpecificClassProvider should be Specific.class");
+                "The default specific class for SpecificClassProvider should be ArgoCDApplicationSpecific.class");
     }
 }

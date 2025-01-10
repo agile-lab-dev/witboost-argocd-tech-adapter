@@ -9,7 +9,10 @@ springdoc:
   swagger-ui:
     path: /docs
 
-
 argocd:
   token: ${ARGOCD_TOKEN}
   basePath: {$ARGOCD_BASE_PATH}
+
+git:
+  username: ${GIT_USERNAME}
+  token: ${GIT_TOKEN}

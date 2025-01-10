@@ -1,0 +1,53 @@
+dataProduct:
+dataProductOwnerDisplayName: John Doe
+environment: development
+domain: domainName
+kind: dataproduct
+domainId: urn:dmb:dmn:domainName
+id: urn:dmb:dp:domainName:argocd-data-product:0
+description: Write something here
+devGroup: group:groupName
+ownerGroup: john.doe_agilelab.it
+dataProductOwner: user:john.doe_agilelab.it
+email: john.doe@agilelab.it
+version: 0.1.0-SNAPSHOT-8
+fullyQualifiedName: ArgoCD Data Product
+name: ArgoCD Data Product
+informationSLA: 2BD
+maturity: Tactical
+useCaseTemplateId: urn:dmb:utm:argocd-template:0.0.0
+infrastructureTemplateId: urn:dmb:itm:dataproduct-provisioner:1
+billing: {}
+tags: []
+specific: {}
+components:
+  - kind: workload
+    id: urn:dmb:cmp:domainName:argocd-data-product:0:argocdappautomatedsync
+    description: Description
+    name: argoCD app automated sync
+    fullyQualifiedName: ArgoCD app automated sync
+    version: 0.0.0
+    infrastructureTemplateId: urn:dmb:itm:argocd-tech-adapter:0
+    useCaseTemplateId: urn:dmb:utm:argocd-template:0.0.0
+    dependsOn: []
+    platform:
+    technology: ArgoCD
+    workloadType: batch
+    connectionType: DataPipeline
+    tags: []
+    readsFrom: []
+    specific:
+      name: appName
+      project: default
+      destination:
+        namespace: my-app-namespace
+        server: https://kubernetes.default.svc
+      source:
+        path: folderPath
+        repoURL: https://gitlab.com/this.is.a.test/argocd.demo.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+componentIdToProvision: urn:dmb:cmp:domainName:argocd-data-product:0:argocdappautomatedsync

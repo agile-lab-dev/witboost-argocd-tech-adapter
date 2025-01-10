@@ -1,6 +1,6 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8" pages="2">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2" pages="2">
   <diagram name="Provisioning" id="e4qa38UFbvTBmFj11uX2">
-    <mxGraphModel dx="3243" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3243" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -22,10 +22,10 @@
         <mxCell id="J9txWKkvzkB0xfc00-O9-79" value="5 - Create application on ArgoCD using upsert mode" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=14;spacingLeft=6;container=0;" parent="J9txWKkvzkB0xfc00-O9-115" vertex="1">
           <mxGeometry x="48.370000000000005" y="250" width="379" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="J9txWKkvzkB0xfc00-O9-28" value="4 - Create repository on ArgoCD" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=14;spacingLeft=6;container=0;" parent="J9txWKkvzkB0xfc00-O9-115" vertex="1">
+        <mxCell id="J9txWKkvzkB0xfc00-O9-28" value="4 - Create/update repository on ArgoCD" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=14;spacingLeft=6;container=0;" parent="J9txWKkvzkB0xfc00-O9-115" vertex="1">
           <mxGeometry x="48.370000000000005" y="200" width="379" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="JqOa5FS0PomqNtQdvpTw-1" value="3 - Create project on ArgoCD" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=14;spacingLeft=6;container=0;" parent="J9txWKkvzkB0xfc00-O9-115" vertex="1">
+        <mxCell id="JqOa5FS0PomqNtQdvpTw-1" value="3 - Create/update project on ArgoCD" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;align=left;fontSize=14;spacingLeft=6;container=0;" parent="J9txWKkvzkB0xfc00-O9-115" vertex="1">
           <mxGeometry x="48.370000000000005" y="150" width="379" height="40" as="geometry" />
         </mxCell>
         <mxCell id="J9txWKkvzkB0xfc00-O9-18" value="Idempotent, i.e. does not fail if something it provisions already exists" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;flipH=1;spacing=4;flipV=1;fontSize=14;position2=0.64;base=25;size=30;position=0.56;direction=west;" parent="1" vertex="1">
@@ -161,7 +161,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="3lkeHFzZveVSe1vqBGwd" name="Unprovisioning">
-    <mxGraphModel dx="3243" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3243" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />

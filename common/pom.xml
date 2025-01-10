@@ -76,6 +76,7 @@
                             <configOptions>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <sourceFolder>src/main/java</sourceFolder>
+                                <dateLibrary>java8</dateLibrary>
                             </configOptions>
                         </configuration>
                     </execution>
@@ -146,6 +147,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
     </dependencies>
 
