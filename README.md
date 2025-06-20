@@ -4,7 +4,7 @@
     </a>
 </p>
 
-Designed by [Agile Lab](https://www.agilelab.it/), Witboost is a versatile platform that addresses a wide range of sophisticated data engineering challenges. It enables businesses to discover, enhance, and productize their data, fostering the creation of automated data platforms that adhere to the highest standards of data governance. Want to know more about Witboost? Check it out [here](https://www.witboost.com/) or [contact us!](https://witboost.com/contact-us).
+Designed by [Agile Lab](https://www.agilelab.it/), Witboost is a versatile platform that addresses a wide range of sophisticated data engineering challenges. It enables businesses to discover, enhance and productize their data, fostering the creation of automated data platforms that adhere to the highest standards of data governance. Want to know more about Witboost? Check it out [here](https://www.witboost.com/) or [contact us!](https://witboost.com/contact-us).
 
 This repository is part of our [Starter Kit](https://github.com/agile-lab-dev/witboost-starter-kit) meant to showcase Witboost's integration capabilities and provide a "batteries-included" product.
 
@@ -16,15 +16,14 @@ This repository is part of our [Starter Kit](https://github.com/agile-lab-dev/wi
 - [Running](#running)
 - [OpenTelemetry Setup](docs/opentelemetry.md)
 - [Deploying](#deploying)
-- [API specification](docs/API.md)
-- [HLD](docs%2FHLD.md)
+- [HLD](docs/HLD.md)
 
 ## Overview
 This project implements a simple Tech Adapter for ArgoCD.
 
 ### What's a Tech Adapter?
 
-A Tech Adapter is a microservice which is in charge of deploying components that use a specific technology. When the deployment of a Data Product is triggered, the platform generates it descriptor and orchestrates the deployment of every component contained in the Data Product. For every such component the platform knows which Tech Adapter is responsible for its deployment, and can thus send a provisioning request with the descriptor to it so that the Tech Adapter can perform whatever operation is required to fulfill this request and report back the outcome to the platform.
+A Tech Adapter is a microservice which is in charge of deploying components that use a specific technology. When the deployment of a Data Product is triggered, the platform generates its descriptor and orchestrates the deployment of every component contained in the Data Product. For every such component the platform knows which Tech Adapter is responsible for its deployment, and can thus send a provisioning request with the descriptor to it so that the Tech Adapter can perform whatever operation is required to fulfill this request and report back the outcome to the platform.
 
 You can learn more about how the Tech Adapters fit in the broader picture [here](https://docs.witboost.agilelab.it/docs/p2_arch/p1_intro/#deploy-flow).
 
@@ -50,7 +49,7 @@ The hooks are all stored in the hooks subdirectory of the Git directory. In most
 Out of the many available hooks supported by Git, we use `pre-commit` hook in order to check the code changes before each commit. If the hook returns a non-zero exit status, the commit is aborted.
 
 
-#### Setup Pre-commit hooks
+#### Set up Pre-commit hooks
 
 In order to use `pre-commit` hook, you can use [**pre-commit**](https://pre-commit.com/) framework to set up and manage multi-language pre-commit hooks.
 
@@ -142,7 +141,7 @@ docker build .
 
 More details can be found [here](docs/docker.md).
 
-*Note:* when running in the CI/CD pipeline the version for the project is automatically computed using information gathered from Git, using branch name and tags. Unless you are on a release branch `1.2.x` or a tag `v1.2.3` it will end up being `0.0.0`. You can follow this branch/tag convention or update the version computation to match your preferred strategy. When running locally if you do not care about the version (ie, nothing gets published or similar) you can manually set the environment variable `PROVISIONER_VERSION` to avoid warnings and oddly-named artifacts; as an example you can set it to the build time like this:
+*Note:* when running in the CI/CD pipeline, the version for the project is automatically computed using information gathered from Git, using branch name and tags. Unless you are on a release branch `1.2.x` or a tag `v1.2.3` it will end up being `0.0.0`. You can follow this branch/tag convention or update the version computation to match your preferred strategy. When running locally if you do not care about the version (i.e., nothing gets published or similar), you can manually set the environment variable `PROVISIONER_VERSION` to avoid warnings and oddly-named artifacts; as an example you can set it to the build time like this:
 ```bash
 export PROVISIONER_VERSION=$(date +%Y%m%d-%H%M%S);
 ```
@@ -152,7 +151,7 @@ export PROVISIONER_VERSION=$(date +%Y%m%d-%H%M%S);
 
 ## Configuring
 
-Application configuration is handled using the features provided by Spring Boot. You can find the default settings in the [application.yml](common%2Fsrc%2Fmain%2Fresources%2Fapplication.yml). Customize it and use the `spring.config.location` system property or the other options provided by the framework according to your needs.
+Application configuration is handled using the features provided by Spring Boot. You can find the default settings in the [application.yml](common/src/main/resources/application.yml). Customize it and use the `spring.config.location` system property or the other options provided by the framework according to your needs.
 
 ### SSL/TLS Configuration
 Configure the Tech Adapter’s JVM to accept ArgoCD self-signed certificates. Please follow the detailed instructions in the [certificate-configuration.md](docs/certificate-configuration.md).
@@ -169,7 +168,7 @@ To run the server locally, use:
 mvn -pl common spring-boot:run
 ```
 
-By default, the server binds to port `8888` on localhost. After it's up and running you can make provisioning requests to this address. You can access the running application [here](http://127.0.0.1:8888).
+By default, the server binds to port `8888` on localhost. After it's up and running, you can make provisioning requests to this address. You can access the running application [here](http://127.0.0.1:8888).
 
 SwaggerUI is configured and hosted on the path `/docs`. You can access it [here](http://127.0.0.1:8888/docs)
 
@@ -186,7 +185,7 @@ This project is available under the [Apache License, Version 2.0](https://openso
 
 [Witboost](https://witboost.com/) is a cutting-edge Data Experience platform, that streamlines complex data projects across various platforms, enabling seamless data production and consumption. This unified approach empowers you to fully utilize your data without platform-specific hurdles, fostering smoother collaboration across teams.
 
-It seamlessly blends business-relevant information, data governance processes, and IT delivery, ensuring technically sound data projects aligned with strategic objectives. Witboost facilitates data-driven decision-making while maintaining data security, ethics, and regulatory compliance.
+It seamlessly blends business-relevant information, data governance processes and IT delivery, ensuring technically sound data projects aligned with strategic objectives. Witboost facilitates data-driven decision-making while maintaining data security, ethics and regulatory compliance.
 
 Moreover, Witboost maximizes data potential through automation, freeing resources for strategic initiatives. Apply your data for growth, innovation and competitive advantage.
 

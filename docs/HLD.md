@@ -1,7 +1,7 @@
-# High Level Design
+# High-Level Design
 
-This document describes the Hig h Level Design of the ArgoCD Tech Adapter.
-The source diagrams can be found and edited in the [accompanying draw.io file](hld.drawio).
+This document describes the High-Level Design of the ArgoCD Tech Adapter.
+The source diagrams can be found and edited in the [accompanying draw.io file](HLD.drawio).
 
 - [Overview](#overview)
 - [Provisioning](#provisioning)
@@ -20,12 +20,12 @@ The TA is invoked by an upstream service of the Witboost platform, namely the Co
 of a complex infrastructure by coordinating several TAs in a single workflow. The TA receives
 the _Data Product Descriptor_ as input with all the components (because it might need more context) plus the id of the component to provision, named _componentIdToProvision_
 
-To enable the above orchestration a TA exposes an API made up of five main operations:
+To enable the above orchestration, a TA exposes an API made up of five main operations:
 - validate: checks if the provided component descriptor is valid and reports any errors
 - provision: allocates resources based on the previously validated descriptor; clients either receive an immediate response (synchronous) or a token to monitor the provisioning process (asynchronous)
 - status: for asynchronous provisioning, provides the current status of a provisioning request using the provided token
 - unprovision: destroys the resources previously allocated.
-- updateacl: grants access to a specific component/resource to a list of users/groups
+- updateACL: grants access to a specific component/resource to a list of users/groups
 
 ### ArgoCD Tech Adapter
 
@@ -38,7 +38,7 @@ It offers:
 
 
 ## Provisioning
-![HLD_provisioning.png](img%2FHLD_provisioning.png)
+![HLD_provisioning.png](img/HLD_provisioning.png)
 
 This flow enables the creation and management of projects, repositories, and applications in an idempotent manner.
 
@@ -53,7 +53,7 @@ This flow enables the creation and management of projects, repositories, and app
 #### - **Metadata Extraction**
 - Descriptive metadata is extracted from the request to identify the resources to be created or updated.
 
-#### -  **Project Creation/Update**
+#### - **Project Creation/Update**
 - If the specified project does not exist in ArgoCD, it is created.
 - If it already exists, the project is updated to include new configurations such as source repositories and destinations.
 
@@ -83,9 +83,9 @@ This process includes specifying:
 
 ## Unprovisioning
 
-![HLD_unprovisioning.png](img%2FHLD_unprovisioning.png)
+![HLD_unprovisioning.png](img/HLD_unprovisioning.png)
 
-Unprovisioning consists of removing the existing application associated to the components. The ArgoCD repositories and projects are never deleted, as other components may still rely on it, and we prefer to avoid their accidental deletion. The tech adapter can easily be extended to do this in case automated deletion is preferred.
+Unprovisioning consists of removing the existing application associated with the components. The ArgoCD repositories and projects are never deleted, as other components may still rely on it, and we prefer to avoid their accidental deletion. The tech adapter can easily be extended to do this in case automated deletion is preferred.
 
 #### - **Unprovisioning Request**
 - An unprovisioning request is sent to the system by the **Provisioning Coordinator**.
@@ -110,6 +110,6 @@ Unprovisioning consists of removing the existing application associated to the c
 
 ### Requirements
 
-- **Technical User**: A technical user with sufficient permissions to manage applications in ArgoCD is required.
+- **Technical User**: A technical user with enough permissions to manage applications in ArgoCD is required.
 
 

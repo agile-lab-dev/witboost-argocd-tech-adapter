@@ -42,6 +42,9 @@ public class ApplicationManager {
             V1alpha1Application v1alpha1Application =
                     applicationServiceApi.applicationServiceCreate(applicationDetails, true, true);
 
+            applicationServiceApi.applicationServiceSync(
+                    applicationSpecific.getName(), new ApplicationApplicationSyncRequest());
+
             logger.info(
                     "Application {} created or updated successfully (project {}).",
                     applicationSpecific.getName(),
@@ -89,8 +92,7 @@ public class ApplicationManager {
      * @param project The ArgoCD project where the application is located.
      * @return An {@link Either} containing {@link V1alpha1ApplicationStatus} on success or a {@link FailedOperation} on failure.
      */
-    public Either<FailedOperation, V1alpha1ApplicationStatus> getApplicationStatus(
-            String name, String namespace, String project) {
+    public Either<FailedOperation, V1alpha1ApplicationStatus> getApplicationStatus(String name, String project) {
         try {
 
             V1alpha1Application application = applicationServiceApi.applicationServiceGet(

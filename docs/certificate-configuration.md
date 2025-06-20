@@ -41,4 +41,4 @@ Options Explained:
 #### 3. Setup relative environment variables
 
 Save TrustStore path and password in environment variables respectively named `ARGOCD_TRUSTSTORE_PATH` and `ARGOCD_TRUSTSTORE_PASSWORD`.
-These variables are used by the Tech Adapter's Java Virtual Machine (JVM) and you can check their usage in [pom.xml (common)](../common/pom.xml).
+These variables are used by the Tech Adapter's Java Virtual Machine (JVM), and you can check their usage in [pom.xml (common)](../common/pom.xml).

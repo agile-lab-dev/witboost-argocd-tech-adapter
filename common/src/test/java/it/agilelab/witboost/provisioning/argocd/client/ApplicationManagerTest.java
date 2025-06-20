@@ -133,7 +133,7 @@ class ApplicationManagerTest {
                 .thenReturn(application);
 
         Either<FailedOperation, V1alpha1ApplicationStatus> result =
-                applicationManager.getApplicationStatus(appName, namespace, project);
+                applicationManager.getApplicationStatus(appName, project);
 
         assertTrue(result.isRight());
         assertNotNull(result.get());
@@ -154,7 +154,7 @@ class ApplicationManagerTest {
                 .thenThrow(new RuntimeException("API error"));
 
         Either<FailedOperation, V1alpha1ApplicationStatus> result =
-                applicationManager.getApplicationStatus(appName, namespace, project);
+                applicationManager.getApplicationStatus(appName, project);
 
         assertTrue(result.isLeft());
         assertNotNull(result.getLeft());
